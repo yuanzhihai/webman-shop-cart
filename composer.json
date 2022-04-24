@@ -1,0 +1,31 @@
+{
+  "name": "yzh52521/webman-shop-cart",
+  "description": "Shopping cart for webman plugin.",
+  "keywords": [
+    "shopping cart",
+    "shopping",
+    "webman"
+  ],
+  "minimum-stability": "dev",
+  "authors": [
+    {
+      "name": "yzh52521",
+      "email": "396751927@qq.com"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "workerman/webman-framework": "^1.2.1",
+    "yzh52521/webman-event": "^1.0",
+    "tightenco/collect": "^8.78|^9.0"
+  },
+  "require-dev": {
+    "topthink/think-orm": "^2.0.53"
+  },
+  "autoload": {
+    "psr-4": {
+      "yzh52521\\ShopCart\\": "src/"
+    }
+  },
+  "license": "MIT"
+}
