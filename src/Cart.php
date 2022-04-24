@@ -21,7 +21,6 @@ class Cart
 
     /**
      * Event dispatcher.
-     *
      * @var \yzh52521\event\Event
      */
     protected $event;
@@ -40,10 +39,13 @@ class Cart
      */
     protected $model;
 
-    public function __construct(Storage $storage, Event $event)
+    /**
+     * @param Storage $storage $storage class name
+     */
+    public function __construct(Storage $storage)
     {
         $this->storage = $storage;
-        $this->event   = $event;
+        $this->event   = Event::class;
     }
 
 
@@ -112,11 +114,11 @@ class Cart
     {
         $cart = $this->getCart();
 
-        $this->event->dispatch('cart.adding', [$attributes, $cart]);
+        $this->event::dispatch('cart.adding', [$attributes, $cart]);
 
         $row = $this->addRow($id, $name, $qty, $price, $attributes);
 
-        $this->event->dispatch('cart.added', [$attributes, $cart]);
+        $this->event::dispatch('cart.added', [$attributes, $cart]);
 
         return $row;
     }
@@ -137,7 +139,7 @@ class Cart
 
         $cart = $this->getCart();
 
-        $this->event->dispatch('cart.updating', [$row, $cart]);
+        $this->event::dispatch('cart.updating', [$row, $cart]);
 
         if (is_array($attribute)) {
             $raw = $this->updateAttribute($rawId, $attribute);
@@ -145,7 +147,7 @@ class Cart
             $raw = $this->updateQty($rawId, $attribute);
         }
 
-        $this->event->dispatch('cart.updated', [$row, $cart]);
+        $this->event::dispatch('cart.updated', [$row, $cart]);
 
         return $raw;
     }
@@ -165,11 +167,11 @@ class Cart
 
         $cart = $this->getCart();
 
-        $this->event->dispatch('cart.removing', [$row, $cart]);
+        $this->event::dispatch('cart.removing', [$row, $cart]);
 
         $cart->forget($rawId);
 
-        $this->event->dispatch('cart.removed', [$row, $cart]);
+        $this->event::dispatch('cart.removed', [$row, $cart]);
 
         $this->save($cart);
 
@@ -199,11 +201,11 @@ class Cart
     {
         $cart = $this->getCart();
 
-        $this->event->dispatch('cart.destroying', $cart);
+        $this->event::dispatch('cart.destroying', $cart);
 
         $this->save(null);
 
-        $this->event->dispatch('cart.destroyed', $cart);
+        $this->event::dispatch('cart.destroyed', $cart);
 
         return true;
     }

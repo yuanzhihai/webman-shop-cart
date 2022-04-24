@@ -88,7 +88,7 @@ $row->qty; // 5
 ...
 ```
 
-### 更新 item
+### 更新购物车
 
 Update the specified item。
 
@@ -105,7 +105,7 @@ ShopCart::update('8a48aa7c8e5202841ddaf767bb4d10da', ['name' => 'New item name')
 ShopCart::update('8a48aa7c8e5202841ddaf767bb4d10da', 5);
 ```
 
-### 获取所有商品
+### 获取购物车中所有商品
 
 Get all the items.
 
@@ -179,7 +179,7 @@ $total = ShopCart::total();
 $total = ShopCart::totalPrice();
 ```
 
-### 购物车行数
+### 购物车商品个数
 
 `Return the number of rows`.
 
@@ -197,7 +197,7 @@ ShopCart::add(127, 'foobar', 15, 100.00, ['color' => 'green', 'size' => 'S']);
 $rows = ShopCart::countRows(); // 2
 ```
 
-### 购物车数量
+### 购物车商品数量
 
 Returns the quantity of all items
 
@@ -232,13 +232,13 @@ $items = ShopCart::search(['name' => 'Item name']);
 $items = ShopCart::search(['qty' => 10]);
 ```
 
-### 检查是否为空
+### 检查购物车是否为空
 
 ```php
 bool ShopCart::isEmpty();
 ```
 
-### 指定关联的模型
+### 指定关联的商品模型
 
 Specifies the associated model of item.
 

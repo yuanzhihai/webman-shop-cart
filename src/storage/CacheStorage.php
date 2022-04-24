@@ -18,7 +18,8 @@ class CacheStorage implements Storage
 
     /**
      * @param $key
-     * @param null $default
+     * @param $default
+     * @return mixed
      */
     public function get($key, $default = null)
     {
