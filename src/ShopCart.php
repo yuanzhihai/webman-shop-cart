@@ -11,7 +11,7 @@ class ShopCart
     {
         if (!static::$_instance) {
             $config            = config('plugin.yzh52521.shop-cart.app.shop_cart');
-            static::$_instance = new \yzh52521\ShopCart\Cart($config['storage'], null);
+            static::$_instance = new \yzh52521\ShopCart\Cart($config['storage'], $config['event']);
         }
         return static::$_instance;
     }
