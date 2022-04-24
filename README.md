@@ -4,7 +4,7 @@
 购物车在电商场景中基本是必须的一个模块
 
 
-##安装
+## 安装
 
 ```
 composer require yzh52521/webman-shop-cart
