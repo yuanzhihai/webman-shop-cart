@@ -248,11 +248,21 @@ Cart ShopCart::associate(string $modelName);
 
 **example:**
 
+session
 ```php
 ShopCart::associate('app\model\Goods');
 $item = ShopCart::get('8a48aa7c8e5202841ddaf767bb4d10da');
 $item->goods->name; // $item->goods is instanceof 'app\model\Goods'
 ```
+database/cache
+```php
+ShopCart::associate('app\model\Goods');
+ShopCart::name('web.1'); //The cart name like cart.{guard}.{user_id}： cart.api.1
+$item = ShopCart::get('8a48aa7c8e5202841ddaf767bb4d10da');
+$item->goods->name; // $item->goods is instanceof 'app\model\Goods'
+```
+
+
 
 # 购物车商品
 

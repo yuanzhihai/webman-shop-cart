@@ -39,7 +39,7 @@ class LaravelDatabaseStorage implements Storage
             return;
         }
 
-        $rawIds = $values->column('__raw_id');
+        $rawIds = $values->pluck('__raw_id');
 
         //Delete the data that has been removed from cart.
         Db::table($this->table)->whereNotIn('__raw_id', $rawIds)->where('key', $key)->delete();
