@@ -26,9 +26,6 @@ datadate
 or
 'storage' => \yzh52521\ShopCart\storage\LaravelDatabaseStorage::class, // laravel
 
-cache
-
-'storage' => \yzh52521\ShopCart\storage\CacheStorage::class,
 ```
 
 如果更改数据存储如果使用数据库存储，则需要创建数据表：
@@ -253,7 +250,7 @@ ShopCart::associate('app\model\Goods');
 $item = ShopCart::get('8a48aa7c8e5202841ddaf767bb4d10da');
 $item->goods->name; // $item->goods is instanceof 'app\model\Goods'
 ```
-database/cache
+database
 ```php
 ShopCart::associate('app\model\Goods');
 ShopCart::name('web.1'); //The cart name like cart.{guard}.{user_id}： cart.api.1
@@ -293,13 +290,7 @@ properties of `yzh52521\ShopCart\Item`:
 | `cart.destroying`| ($cart);              |
 | `cart.destroyed` | ($cart);              |
 
-您可以轻松处理这些事件，例如：
-```php
 
-Event::listen('cart.adding', function($attributes, $cart){
-    // code
-});
-```
 # License
 
 MIT
